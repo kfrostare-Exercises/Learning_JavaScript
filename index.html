@@ -8,11 +8,17 @@
 </head>
 
 <body>
-
+    <h2>You are so good at explaining this JS thing</h2>
+    
     <script>
+    
     const newNode = document.createElement('div')
-    newNode.innerHTML = '<h1>Hello World</h1>'
-    document.body.appendChild(newNode)    
+    newNode.innerHTML = '<h1> Hello World! </h1>'
+    newNode.style.color= 'red'
+    document.body.appendChild(newNode)//change this according to the demo in order to get h2 below h1...
+    let paragraph = document.querySelector('h2')
+    paragraph.style.color = 'green'
+    
     </script>    
 
 </body>
