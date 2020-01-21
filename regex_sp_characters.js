@@ -76,25 +76,83 @@
 // console.log(regex.test('8')); //true because \d = any digit
 
 ///( * ) Matches the preceding expression 0 or more times.
-var regex = /go*d/;
+// var regex = /go*d/;
 // console.log(regex.test('gd'));
-console.log(regex.test('gd'));
+// console.log(regex.test('god'));
+// console.log(regex.test('good'));
+// console.log(regex.test('goood'));
+
+/// ( ? ) Matches the preceding expression 0 or 1 time, that is preceding pattern is optional.
+// var regex = /goo?d/;
+// console.log(regex.test('god'));
+// console.log(regex.test('good'));
+// console.log(regex.test('goood'));
+
+/// ( ^ ) Matches the beginning of the string, the regular expression that follows it should be at the start of the test string. 
+//i.e the caret (^) matches the start of string.
+// var regex = /^g/;
+// console.log(regex.test('good'));
+// console.log(regex.test('bad'));
+// console.log(regex.test('tag'));
+
+/// ( $ ) Matches the end of the string, that is the regular expression that precedes it should be at the end of the test string. 
+//The dollar ($) sign matches the end of the string.
+// var regex = /.com$/;
+// console.log(regex.test('test@testmail.com'));
+// console.log(regex.test('test@testmail'));
+
+/// {N} Matches exactly N occurrences of the preceding regular expression.
+// var regex = /go{2}d/;
+// console.log(regex.test('good'));
+// console.log(regex.test('god'));
+
+/// {N,} Matches at least N occurrences of the preceding regular expression.
+// var regex = /go{2,}d/;
+// console.log(regex.test('good'));
+// console.log(regex.test('goood'));
+// console.log(regex.test('gooood'));
+
+/// {N,M} Matches at least N occurrences and at most M occurrences of the preceding regular expression (where M > N).
+// var regex = /go{1,2}d/;
+// console.log(regex.test('god'));
+// console.log(regex.test('good'));
+// console.log(regex.test('goood'));
+
+/// Alternation X|Y - Matches either X or Y. For example:
+// var regex = /(green|red) apple/;
+// console.log(regex.test('green apple'));
+// console.log(regex.test('red apple'));
+// console.log(regex.test('blue apple'));
+
+/// Note — If you want to use any special character as a part of the expression, 
+// say for example you want to match literal + or ., then you have to escape them with backslash ( \ ).
+// For example:
+// var regex = /a+b/;  // This won't work
+// var regex = /a\+b/; // This will work
+// console.log(regex.test('a+b')); // true
 
 
 
+///// ADVANCED
 
+//// ( x ) - Matches x and remembers the match. These are called capturing groups. 
+/// This is also used to create sub expressions within a regular expression. For example :-
+// var regex = /(foo)bar\1/;
+// console.log(regex.test('foobarfoo')); //true
+// console.log(regex.test('foobar')); //false
+//\1 remembers and uses that match from first subexpression within parentheses.
 
+//// ( ?:x ) - Matches x and does not remember the match. These are called non capturing groups. 
+//Here \1 won’t work, it will match the literal \1.
+// var regex = /(?:foo)bar\1/;
+// console.log(regex.test('foobarfoo')); // false
+// console.log(regex.test('foobar')); // false
+// console.log(regex.test('foobar\1')); // true
 
-
-
-
-
-
-
-
-
-
-
-
+//// ( ?=y ) - Matches x only if x is followed by y. Also called positive look ahead. 
+/// For example:
+// var regex = /Red(?=Apple)/;
+// console.log(regex.test('RedApple')); // true
+// In the above example, match will occur only if Redis followed by Apple.
 
 
